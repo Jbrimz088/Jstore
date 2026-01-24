@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+  <key>PayloadType</key>
+  <string>Configuration</string>
+
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+
+  <key>PayloadIdentifier</key>
+  <string>com.jstore.webclip</string>
+
+  <key>PayloadUUID</key>
+  <string>F3B2C9A1-8E5A-4B2E-9A11-JSTORE001</string>
+
+  <key>PayloadDisplayName</key>
+  <string>J-Store Launcher</string>
+
+  <key>PayloadOrganization</key>
+  <string>J-Store</string>
+
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.webClip.managed</string>
+
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+
+      <key>PayloadIdentifier</key>
+      <string>com.jstore.webclip.payload</string>
+
+      <key>PayloadUUID</key>
+      <string>91C7B8C4-6F77-4C39-AF01-JSTORE002</string>
+
+      <key>Label</key>
+      <string>J-Store</string>
+
+      <key>URL</key>
+      <string>https://jbrimz088.github.io/J-TV</string>
+
+      <key>IsRemovable</key>
+      <true/>
+
+      <key>FullScreen</key>
+      <true/>
+
+      <key>IgnoreManifestScope</key>
+      <true/>
+
+      <key>Precomposed</key>
+      <true/>
+
+    </dict>
+  </array>
+
+</dict>
+</plist>
