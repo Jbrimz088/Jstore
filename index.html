@@ -39,7 +39,6 @@ header{
 header h1{
   margin:0;
   font-size:28px;
-  letter-spacing:.5px;
 }
 
 header p{
@@ -70,18 +69,17 @@ header p{
   gap:14px;
 }
 
-.app-icon{
+/* IMAGE SLOT */
+.app-image{
   width:72px;
   height:72px;
   border-radius:18px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  font-size:22px;
+  background:#000;
+  object-fit:cover;
+  box-shadow:0 0 0 1px rgba(124,77,255,.4);
 }
 
+/* TEXT */
 .app h2{
   margin:0;
   font-size:20px;
@@ -132,12 +130,21 @@ footer{
 <section class="store">
 
   <div class="app">
-    <div class="app-icon">TV</div>
+
+    <!-- APP IMAGE -->
+    <img
+      class="icon"
+      src="https://your-site.com/jtv-icon.png"
+      alt="J-TV Icon"
+      onerror="this.style.display='none'"
+    >
+
     <h2>J-TV</h2>
     <p>
       Fullscreen streaming web app.  
       Installs a launcher profile for seamless access.
     </p>
+
     <a class="download" href="J-TV.mobileconfig">
       Install
     </a>
@@ -146,7 +153,7 @@ footer{
 </section>
 
 <footer>
-  © J-Store • How to set up. Go to settings and then General. now scroll Untill You See VPN & Device Management. Click on J-Store Launcher and Install.
+  © J-Store • How to set up. Go to settings and then General. now scroll Until You See VPN & Device Management. Click on J-Store Launcher and Install.
 </footer>
 
 </body>
