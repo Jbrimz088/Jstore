@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>J-Store</title>
+<title>J-TV • J-Store</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -18,50 +18,59 @@ body{
 }
 .card{
   background:#1c1c2b;
-  padding:22px;
+  padding:24px;
   border-radius:18px;
-  width:320px;
-  box-shadow:0 0 30px rgba(124,77,255,.4);
-}
-.app{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
+  width:340px;
+  box-shadow:0 0 40px rgba(124,77,255,.5);
 }
 .icon{
-  width:72px;
-  height:72px;
-  border-radius:18px;
+  width:80px;
+  height:80px;
+  border-radius:20px;
   background:linear-gradient(135deg,#7c4dff,#5b2bd6);
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
-  font-size:22px;
+  font-size:26px;
 }
-h1{margin:0;font-size:20px}
-p{margin:0;color:#b5b5d6;font-size:14px}
-.open{
-  margin-top:10px;
+h1{margin:14px 0 6px}
+p{color:#b5b5d6;font-size:14px;line-height:1.5}
+.install{
+  margin-top:16px;
   text-align:center;
-  padding:14px;
+  padding:15px;
   border-radius:14px;
   background:linear-gradient(135deg,#7c4dff,#5b2bd6);
   color:#fff;
   text-decoration:none;
-  font-weight:700;
+  font-weight:800;
+}
+.back{
+  margin-top:12px;
+  display:block;
+  text-align:center;
+  color:#b5b5d6;
+  text-decoration:none;
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
   <div class="card">
-    <div class="app">
-      <div class="icon">TV</div>
-      <h1>J-TV</h1>
-      <p>Fullscreen streaming web app</p>
-      <a class="open" href="jtv.html">View App</a>
-    </div>
+    <div class="icon">TV</div>
+    <h1>J-TV</h1>
+    <p>
+      Installs a configuration profile that adds a fullscreen
+      home-screen launcher for J-TV.
+    </p>
+
+    <a class="install" href="J-TV.mobileconfig">
+      Install Profile
+    </a>
+
+    <a class="back" href="index.html">← Back to Store</a>
   </div>
 </body>
 </html>
