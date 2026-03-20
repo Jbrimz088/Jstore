@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0612" />
+  <title>J-Store (preview)</title>
+  <link rel="apple-touch-icon" href="https://jbrimz088.github.io/Jstore/jstore-logo.png" />
+  <link rel="icon" type="image/png" href="https://jbrimz088.github.io/Jstore/jstore-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0612;
+      --surface: #1a1028;
+      --border: rgba(168, 85, 247, 0.22);
+      --text: #f4edff;
+      --muted: #9b8ab8;
+      --accent: #a855f7;
+      --radius: 14px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: radial-gradient(120% 80% at 50% -20%, #2d1b4e 0%, var(--bg) 55%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: calc(1.5rem + var(--safe-top)) 1.25rem calc(2rem + var(--safe-bottom));
+    }
+    .brand { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; margin-bottom: 0.5rem; }
+    .brand-logo { width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 8px 32px rgba(168, 85, 247, 0.35); object-fit: cover; }
+    .brand-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; }
+    .hero { padding: 1rem 0 1.5rem; text-align: center; }
+    .hero h1 { margin: 0 0 0.75rem; font-size: clamp(1.35rem, 4vw, 1.85rem); font-weight: 600; color: var(--muted); }
+    .hero h1 span {
+      background: linear-gradient(90deg, #c084fc, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p { margin: 0 auto; max-width: 22rem; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+    .panel {
+      max-width: 320px;
+      margin: 1.5rem auto 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.25rem 1.1rem;
+    }
+    .panel h2 { margin: 0 0 0.35rem; font-size: 1.1rem; font-weight: 600; }
+    .panel > p { margin: 0 0 1rem; font-size: 0.875rem; color: var(--muted); line-height: 1.45; }
+    .actions { display: flex; flex-direction: column; gap: 0.65rem; }
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+      cursor: pointer;
+    }
+    button.btn { border-style: solid; border-width: 1px; }
+    .btn:active { transform: scale(0.98); }
+    .btn-install {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
+      border: none;
+    }
+    .btn-open { background: transparent; color: var(--text); border-color: var(--border); }
+    .callout {
+      margin-top: 1rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.72rem;
+      line-height: 1.45;
+      color: var(--muted);
+      background: rgba(168, 85, 247, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .callout strong { color: var(--text); }
+    .hint { margin: 1rem 0 0; font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+    footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">
+      <img class="brand-logo" src="jstore-logo.png" width="72" height="72" alt="J-Store logo" />
+      <span class="brand-name">J-Store</span>
+    </div>
+    <section class="hero">
+      <h1>Install <span>one app at a time</span></h1>
+      <p>Same as <code>index.html</code>; use relative logo + <code>jstore-store.mobileconfig</code> when testing from this folder on PC.</p>
+    </section>
+    <div class="panel">
+      <h2>J-TV</h2>
+      <p>Full-screen shortcut to your stream.</p>
+      <div class="actions">
+        <button type="button" class="btn btn-install" id="install-profile">Install J-TV profile</button>
+        <button type="button" class="btn btn-open" id="open-jtv">Open J-TV in browser</button>
+      </div>
+      <div class="callout" role="note">
+        <strong>Apple:</strong> configuration profiles always require opening <strong>Settings</strong> to review and tap Install—cannot be skipped from the web.
+      </div>
+      <p class="hint">On GitHub Pages use <code>index.html</code> (absolute URLs).</p>
+    </div>
+    <footer>JSTORE · black / purple UI</footer>
+  </main>
+  <script>
+    (function () {
+      document.getElementById("open-jtv").addEventListener("click", function () {
+        window.open("https://jbrimz088.github.io/J-TV/", "_blank", "noopener,noreferrer");
+      });
+      document.getElementById("install-profile").addEventListener("click", function () {
+        window.location.assign("jstore-store.mobileconfig?t=" + Date.now());
+      });
+    })();
+  </script>
+</body>
+</html>
