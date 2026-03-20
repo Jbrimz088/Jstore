@@ -84,6 +84,33 @@
     .btn-open { background: transparent; color: var(--text); border-color: var(--border); }
     .btn-open:hover { border-color: rgba(168, 85, 247, 0.45); }
     .hint { margin: 1rem 0 0; font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+    .callout {
+      margin-top: 1rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.72rem;
+      line-height: 1.45;
+      color: var(--muted);
+      background: rgba(168, 85, 247, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .callout strong { color: var(--text); }
+    .panel-nosettings {
+      max-width: 320px;
+      margin: 1rem auto 0;
+      padding: 0.85rem 1rem;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+    }
+    .panel-nosettings h3 {
+      margin: 0 0 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+    }
     footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.8rem; }
   </style>
 </head>
@@ -96,27 +123,38 @@
     <section class="hero">
       <h1>Install <span>one app at a time</span></h1>
       <p>
-        Only <strong style="color: var(--text)">J-TV</strong> can be added from here right now. Tap <strong style="color: var(--text)">Install J-TV</strong> to download the profile—just the J-TV Home Screen icon, nothing else.
+        <strong style="color: var(--text)">J-TV</strong> via profile (full-screen Web Clip) or without Settings using Safari’s <strong style="color: var(--text)">Add to Home Screen</strong> below.
       </p>
     </section>
     <div class="panel">
-      <h2>J-TV</h2>
-      <p>Full-screen shortcut to your stream.</p>
+      <h2>J-TV (profile)</h2>
+      <p>Managed Web Clip: custom icon, opens J-TV full screen.</p>
       <div class="actions">
-        <a class="btn btn-install" href="https://jbrimz088.github.io/Jstore/jstore-store.mobileconfig">Install J-TV</a>
+        <button type="button" class="btn btn-install" id="install-profile">Install J-TV profile</button>
         <button type="button" class="btn btn-open" id="open-jtv">Open J-TV in browser</button>
       </div>
+      <div class="callout" role="note">
+        <strong>iOS / iPadOS:</strong> there is no way for a website to install a <code style="color: var(--accent)">.mobileconfig</code> silently. After you tap Install, Apple always sends you to <strong>Settings</strong> once so you can review and confirm—that cannot be removed from HTML, JavaScript, or the profile file. This button jumps straight to the profile download (same tab) and adds a fresh timestamp so your device is less likely to reuse an old cached copy.
+      </div>
       <p class="hint">
-        Commit <strong style="color: var(--text)">jstore-store.mobileconfig</strong> and <strong style="color: var(--text)">jstore-logo.png</strong> next to this <code style="color: var(--accent)">index.html</code> in your repo. If Install returns 404, the profile is missing on GitHub Pages.
+        Repo files: <code style="color: var(--accent)">jstore-store.mobileconfig</code> and <code style="color: var(--accent)">jstore-logo.png</code> next to <code style="color: var(--accent)">index.html</code>. A 404 on the profile URL means the file is not deployed.
       </p>
+    </div>
+    <div class="panel-nosettings">
+      <h3>No Settings: shortcut only</h3>
+      Tap <strong>Open J-TV in browser</strong>, then in Safari use <strong>Share</strong> → <strong>Add to Home Screen</strong>. That adds an icon <em>without</em> a configuration profile. It may behave slightly differently than the profile Web Clip (e.g. Safari controls), but Apple allows it without the Settings install step.
     </div>
     <footer>JSTORE · black / purple UI</footer>
   </main>
   <script>
     (function () {
-      var u = "https://jbrimz088.github.io/J-TV/";
+      var jtv = "https://jbrimz088.github.io/J-TV/";
+      var profileBase = "https://jbrimz088.github.io/Jstore/jstore-store.mobileconfig";
       document.getElementById("open-jtv").addEventListener("click", function () {
-        window.open(u, "_blank", "noopener,noreferrer");
+        window.open(jtv, "_blank", "noopener,noreferrer");
+      });
+      document.getElementById("install-profile").addEventListener("click", function () {
+        window.location.assign(profileBase + "?t=" + Date.now());
       });
     })();
   </script>
