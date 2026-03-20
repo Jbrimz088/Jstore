@@ -76,25 +76,13 @@
       transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
     }
     .btn:active { transform: scale(0.98); }
-    .btn-primary {
-      background: linear-gradient(135deg, #7c3aed, #a855f7);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
-      border: none;
-    }
-    .btn-primary:hover { box-shadow: 0 6px 28px rgba(168, 85, 247, 0.4); }
-    .btn-open {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-open:hover { border-color: rgba(168, 85, 247, 0.45); }
     .btn-install {
       background: linear-gradient(135deg, #5b21b6, #7c3aed);
       color: #fff;
       box-shadow: 0 4px 20px rgba(91, 33, 182, 0.45);
       border: none;
     }
+    .btn-install:hover { box-shadow: 0 6px 28px rgba(91, 33, 182, 0.55); }
     .hint { margin: 1rem 0 0; font-size: 0.72rem; color: var(--muted); line-height: 1.45; }
     footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.8rem; }
   </style>
@@ -108,15 +96,14 @@
     <section class="hero">
       <h1><span>J-Store</span> hub</h1>
       <p>
-        <strong style="color: var(--text)">Install profile</strong> below opens J-Store in <strong style="color: var(--text)">this same window</strong> (no new Safari tab, no profile download). Use it from a home screen Web Clip to stay in that full-screen shell.
+        Tap below to open <strong style="color: var(--text)">J-TV</strong> in <strong style="color: var(--text)">this same window</strong> (no new Safari tab). Works best from a home screen Web Clip.
       </p>
     </section>
     <div class="panel">
-      <h2>J-Store</h2>
-      <p>Same-window navigation only — no <code style="color: var(--accent)">target="_blank"</code>.</p>
+      <h2>J-TV</h2>
+      <p>Same-window only — no <code style="color: var(--accent)">target="_blank"</code>.</p>
       <div class="actions">
-        <a class="btn btn-install" href="https://jbrimz088.github.io/Jstore/">Install profile</a>
-        <a class="btn btn-open" href="https://jbrimz088.github.io/J-TV/">Open J-TV</a>
+        <a class="btn btn-install" href="https://jbrimz088.github.io/J-TV/">Open J-TV</a>
       </div>
       <p class="hint">
         Apple <code style="color: var(--accent)">.mobileconfig</code> for a real home screen icon (separate):
