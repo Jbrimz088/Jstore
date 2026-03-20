@@ -10,87 +10,19 @@
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>PayloadIdentifier</key>
-			<string>com.jstore.webclip.1</string>
+			<string>com.jstore.webclip.jtv</string>
 			<key>PayloadUUID</key>
-			<string>7C8E9F0A-1B2C-4D5E-6F70-8192ABCDEF01</string>
+			<string>F2E3D4C5-B6A7-4890-8123-456789ABCDEF</string>
 			<key>PayloadDisplayName</key>
-			<string>Web Clip: JSTORE</string>
-			<key>Label</key>
-			<string>JSTORE</string>
-			<key>URL</key>
-			<string>jbrimz088.github.io/Jstore/index.html</string>
-			<key>IsRemovable</key>
-			<true/>
-			<key>Precomposed</key>
-			<false/>
-			<key>IgnoreManifestScope</key>
-			<false/>
-			<key>FullScreen</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>PayloadType</key>
-			<string>com.apple.webClip.managed</string>
-			<key>PayloadVersion</key>
-			<integer>1</integer>
-			<key>PayloadIdentifier</key>
-			<string>com.jstore.webclip.2</string>
-			<key>PayloadUUID</key>
-			<string>8D9E0F1A-2B3C-4D5E-6F70-8192ABCDEF02</string>
-			<key>PayloadDisplayName</key>
-			<string>Web Clip: J-TV</string>
+			<string>J-TV</string>
 			<key>Label</key>
 			<string>J-TV</string>
 			<key>URL</key>
 			<string>https://jbrimz088.github.io/J-TV/</string>
-			<key>IsRemovable</key>
-			<true/>
-			<key>Precomposed</key>
-			<false/>
-			<key>IgnoreManifestScope</key>
-			<false/>
-			<key>FullScreen</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>PayloadType</key>
-			<string>com.apple.webClip.managed</string>
-			<key>PayloadVersion</key>
-			<integer>1</integer>
-			<key>PayloadIdentifier</key>
-			<string>com.jstore.webclip.3</string>
-			<key>PayloadUUID</key>
-			<string>9E0F1A2B-3C4D-5E6F-7081-92ABCDEF0303</string>
-			<key>PayloadDisplayName</key>
-			<string>Web Clip: App / site 3</string>
-			<key>Label</key>
-			<string>App 3</string>
-			<key>URL</key>
-			<string>https://YOUR-THIRD-URL.example/</string>
-			<key>IsRemovable</key>
-			<true/>
-			<key>Precomposed</key>
-			<false/>
-			<key>IgnoreManifestScope</key>
-			<false/>
-			<key>FullScreen</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>PayloadType</key>
-			<string>com.apple.webClip.managed</string>
-			<key>PayloadVersion</key>
-			<integer>1</integer>
-			<key>PayloadIdentifier</key>
-			<string>com.jstore.webclip.4</string>
-			<key>PayloadUUID</key>
-			<string>0F1A2B3C-4D5E-6F70-8192-A1B2C3D4E5F6</string>
-			<key>PayloadDisplayName</key>
-			<string>Web Clip: App / site 4</string>
-			<key>Label</key>
-			<string>App 4</string>
-			<key>URL</key>
-			<string>https://YOUR-FOURTH-URL.example/</string>
+			<key>Icon</key>
+			<data>
+			iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAABaklEQVR42u3SMQ0AAAjAMHShDctoAA+cpEcNLIvKHvgiRMDQYGgwNBgaQ4OhwdBgaDA0hgZDg6HB0GBoDA2GBkODocHQGBoMDYYGQ4OhMTQYGgwNhgZDY2gwNBgaDA2GxtBgaDA0GBpDC4GhwdBgaDA0hgZDg6HB0GBoDA2GBkODocHQGBoMDYYGQ4OhMTQYGgwNhgZDY2gwNBgaDA2GxtBgaDA0GBoMjaHB0GBoMDSGBkODocHQYGgMDYYGQ4OhwdAYGgwNhgZDg6ExNBgaDA2GBkNjaDA0GBoMDYbG0GBoMDQYGgyNocHQYGgwNIYWAUODocHQYGgMDYYGQ4OhwdAYGgwNhgZDg6ExNBgaDA2GBkNjaDA0GBoMDYbG0GBoMDQYGgyNocHQYGgwNBgaQ4OhwdBgaAwNhgZDg6HB0BgaDA2GBkODoTE0GBoMDYYGQ2NoMDQYGgwNhsbQYGgwNBgaDI2hwdBgaLhbi1NKpJ0iSAQAAAAASUVORK5CYII=
+			</data>
 			<key>IsRemovable</key>
 			<true/>
 			<key>Precomposed</key>
@@ -102,11 +34,11 @@
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string>JSTORE — Web clips (apps &amp; sites)</string>
+	<string>JSTORE — J-TV</string>
 	<key>PayloadDescription</key>
-	<string>After install, use the new HOME SCREEN icons (JSTORE, J-TV, etc.)—not Safari. Each icon opens its URL in full-screen web-app mode (no address bar or Safari tabs). Apple does not support running HTML inside the Settings or profile app; Web Clip + FullScreen is the supported way to get an app-like window. Edit URLs before install. Remove unneeded Web Clip dicts or duplicate one with new PayloadUUID and PayloadIdentifier to add more.</string>
+	<string>Adds only the J-TV shortcut to your Home Screen (full-screen web app). Install from J-Store, then look for the purple J icon. Does not add other apps.</string>
 	<key>PayloadIdentifier</key>
-	<string>com.jstore.profile.webclips</string>
+	<string>com.jstore.profile.jtv</string>
 	<key>PayloadOrganization</key>
 	<string>JSTORE</string>
 	<key>PayloadRemovalDisallowed</key>
