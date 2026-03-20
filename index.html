@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0612" />
-  <!-- Standalone / Web Clip: helps iOS treat this like an app shell (no Safari UI when launched from a full-screen Web Clip). -->
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="JSTORE" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>JSTORE — Preview</title>
+  <title>J-Store</title>
+  <link rel="apple-touch-icon" href="jstore-logo.png" />
+  <link rel="icon" type="image/png" href="jstore-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
@@ -46,17 +47,40 @@
       padding: calc(1.5rem + var(--safe-top)) 1.25rem calc(2rem + var(--safe-bottom));
     }
 
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .brand-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(168, 85, 247, 0.35);
+      object-fit: cover;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
     .hero {
-      padding: 2.5rem 0 2rem;
+      padding: 1rem 0 1.5rem;
       text-align: center;
     }
 
     .hero h1 {
       margin: 0 0 0.75rem;
-      font-size: clamp(1.75rem, 5vw, 2.5rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+      font-size: clamp(1.35rem, 4vw, 1.85rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--muted);
     }
 
     .hero h1 span {
@@ -68,116 +92,119 @@
 
     .hero p {
       margin: 0 auto;
-      max-width: 32rem;
+      max-width: 22rem;
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.55;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(160px, 280px);
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .card {
+    .panel {
+      max-width: 320px;
+      margin: 1.5rem auto 0;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.15s, transform 0.15s;
+      padding: 1.25rem 1.25rem 1.1rem;
     }
 
-    .card:hover {
-      border-color: rgba(168, 85, 247, 0.45);
-      transform: translateY(-2px);
-    }
-
-    a.card {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    a.card:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    .card-img {
-      aspect-ratio: 1;
-      background: linear-gradient(145deg, #1e1033 0%, #0f0820 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-    }
-
-    .card-body {
-      padding: 0.85rem 1rem 1rem;
-    }
-
-    .card-body h3 {
-      margin: 0 0 0.25rem;
-      font-size: 0.95rem;
+    .panel h2 {
+      margin: 0 0 0.35rem;
+      font-size: 1.1rem;
       font-weight: 600;
     }
 
-    .price {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 1rem;
+    .panel > p {
+      margin: 0 0 1rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.45;
     }
 
-    .tag {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-install {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
+      border: none;
+    }
+
+    .btn-install:hover {
+      box-shadow: 0 6px 28px rgba(168, 85, 247, 0.4);
+    }
+
+    .btn-open {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-open:hover {
+      border-color: rgba(168, 85, 247, 0.45);
+    }
+
+    .hint {
+      margin: 1rem 0 0;
+      font-size: 0.75rem;
       color: var(--muted);
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      background: var(--bg-elevated);
+      line-height: 1.4;
     }
 
     footer {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
       border-top: 1px solid var(--border);
       text-align: center;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
-
   </style>
 </head>
 <body>
   <main>
+    <div class="brand">
+      <img class="brand-logo" src="jstore-logo.png" width="72" height="72" alt="J-Store logo" />
+      <span class="brand-name">J-Store</span>
+    </div>
+
     <section class="hero">
-      <h1>J-Store,<span>purple accent</span></h1>
+      <h1>Install <span>one app at a time</span></h1>
       <p>
-        Tap J-TV below to open the stream.
+        Only <strong style="color: var(--text)">J-TV</strong> can be added from here right now. Tap Install to download the profile—just the J-TV Home Screen icon, nothing else.
       </p>
     </section>
 
-    <div class="grid" role="list">
-      <a
-        class="card"
-        role="listitem"
-        href="https://jbrimz088.github.io/J-TV/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="card-img" aria-hidden="true">👟</div>
-        <div class="card-body">
-          <h3>J-TV</h3>
-          <div class="price">Watch</div>
-          <span class="tag">Footwear</span>
-        </div>
-      </a>
+    <div class="panel">
+      <h2>J-TV</h2>
+      <p>Full-screen shortcut to your stream.</p>
+      <div class="actions">
+        <!-- No `download` attribute: iOS Safari must open the profile for Settings install. -->
+        <a class="btn btn-install" href="jstore-store.mobileconfig">Install J-TV</a>
+        <a class="btn btn-open" href="https://jbrimz088.github.io/J-TV/">Open J-TV in browser</a>
+      </div>
+      <p class="hint">
+        iPhone/iPad: after Install, open the downloaded profile in Settings and follow the steps. Host this page over HTTPS (e.g. GitHub Pages) so the profile link works reliably.
+      </p>
     </div>
 
     <footer>
