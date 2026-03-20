@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadType</key>
+			<string>com.apple.webClip.managed</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadIdentifier</key>
+			<string>com.jstore.webclip.1</string>
+			<key>PayloadUUID</key>
+			<string>7C8E9F0A-1B2C-4D5E-6F70-8192ABCDEF01</string>
+			<key>PayloadDisplayName</key>
+			<string>Web Clip: JSTORE</string>
+			<key>Label</key>
+			<string>JSTORE</string>
+			<key>URL</key>
+			<string>https://YOUR-HOST.example/jstore-preview.html</string>
+			<key>IsRemovable</key>
+			<true/>
+			<key>Precomposed</key>
+			<false/>
+			<key>IgnoreManifestScope</key>
+			<false/>
+			<key>FullScreen</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PayloadType</key>
+			<string>com.apple.webClip.managed</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadIdentifier</key>
+			<string>com.jstore.webclip.2</string>
+			<key>PayloadUUID</key>
+			<string>8D9E0F1A-2B3C-4D5E-6F70-8192ABCDEF02</string>
+			<key>PayloadDisplayName</key>
+			<string>Web Clip: J-TV</string>
+			<key>Label</key>
+			<string>J-TV</string>
+			<key>URL</key>
+			<string>https://jbrimz088.github.io/J-TV/</string>
+			<key>IsRemovable</key>
+			<true/>
+			<key>Precomposed</key>
+			<false/>
+			<key>IgnoreManifestScope</key>
+			<false/>
+			<key>FullScreen</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PayloadType</key>
+			<string>com.apple.webClip.managed</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadIdentifier</key>
+			<string>com.jstore.webclip.3</string>
+			<key>PayloadUUID</key>
+			<string>9E0F1A2B-3C4D-5E6F-7081-92ABCDEF0303</string>
+			<key>PayloadDisplayName</key>
+			<string>Web Clip: App / site 3</string>
+			<key>Label</key>
+			<string>App 3</string>
+			<key>URL</key>
+			<string>https://YOUR-THIRD-URL.example/</string>
+			<key>IsRemovable</key>
+			<true/>
+			<key>Precomposed</key>
+			<false/>
+			<key>IgnoreManifestScope</key>
+			<false/>
+			<key>FullScreen</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PayloadType</key>
+			<string>com.apple.webClip.managed</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadIdentifier</key>
+			<string>com.jstore.webclip.4</string>
+			<key>PayloadUUID</key>
+			<string>0F1A2B3C-4D5E-6F70-8192-A1B2C3D4E5F6</string>
+			<key>PayloadDisplayName</key>
+			<string>Web Clip: App / site 4</string>
+			<key>Label</key>
+			<string>App 4</string>
+			<key>URL</key>
+			<string>https://YOUR-FOURTH-URL.example/</string>
+			<key>IsRemovable</key>
+			<true/>
+			<key>Precomposed</key>
+			<false/>
+			<key>IgnoreManifestScope</key>
+			<false/>
+			<key>FullScreen</key>
+			<true/>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>JSTORE — Web clips (apps &amp; sites)</string>
+	<key>PayloadDescription</key>
+	<string>After install, use the new HOME SCREEN icons (JSTORE, J-TV, etc.)—not Safari. Each icon opens its URL in full-screen web-app mode (no address bar or Safari tabs). Apple does not support running HTML inside the Settings or profile app; Web Clip + FullScreen is the supported way to get an app-like window. Edit URLs before install. Remove unneeded Web Clip dicts or duplicate one with new PayloadUUID and PayloadIdentifier to add more.</string>
+	<key>PayloadIdentifier</key>
+	<string>com.jstore.profile.webclips</string>
+	<key>PayloadOrganization</key>
+	<string>JSTORE</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>3F4A5B6C-7D8E-9012-3456-7890ABCDEF12</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
