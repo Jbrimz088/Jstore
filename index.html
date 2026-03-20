@@ -1,74 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>J-TV • J-Store</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0612" />
+  <!-- Standalone / Web Clip: helps iOS treat this like an app shell (no Safari UI when launched from a full-screen Web Clip). -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="JSTORE" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>JSTORE — Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0612;
+      --bg-elevated: #120a1c;
+      --surface: #1a1028;
+      --border: rgba(168, 85, 247, 0.22);
+      --text: #f4edff;
+      --muted: #9b8ab8;
+      --accent: #a855f7;
+      --radius: 14px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
 
-<style>
-body{
-  margin:0;
-  min-height:100vh;
-  background:linear-gradient(180deg,#0b0b0f,#000);
-  color:#fff;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.card{
-  background:#1c1c2b;
-  padding:24px;
-  border-radius:18px;
-  width:340px;
-  box-shadow:0 0 40px rgba(124,77,255,.5);
-}
-.icon{
-  width:80px;
-  height:80px;
-  border-radius:20px;
-  background:linear-gradient(135deg,#7c4dff,#5b2bd6);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  font-size:26px;
-}
-h1{margin:14px 0 6px}
-p{color:#b5b5d6;font-size:14px;line-height:1.5}
-.install{
-  margin-top:16px;
-  text-align:center;
-  padding:15px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#7c4dff,#5b2bd6);
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
-}
-.back{
-  margin-top:12px;
-  display:block;
-  text-align:center;
-  color:#b5b5d6;
-  text-decoration:none;
-  font-size:13px;
-}
-</style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: radial-gradient(120% 80% at 50% -20%, #2d1b4e 0%, var(--bg) 55%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: calc(1.5rem + var(--safe-top)) 1.25rem calc(2rem + var(--safe-bottom));
+    }
+
+    .hero {
+      padding: 2.5rem 0 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #c084fc, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 32rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(160px, 280px);
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+
+    .card:hover {
+      border-color: rgba(168, 85, 247, 0.45);
+      transform: translateY(-2px);
+    }
+
+    a.card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    a.card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .card-img {
+      aspect-ratio: 1;
+      background: linear-gradient(145deg, #1e1033 0%, #0f0820 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .card-body {
+      padding: 0.85rem 1rem 1rem;
+    }
+
+    .card-body h3 {
+      margin: 0 0 0.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .price {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      background: var(--bg-elevated);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+  </style>
 </head>
-
 <body>
-  <div class="card">
-    <div class="icon">TV</div>
-    <h1>J-TV</h1>
-    <p>
-      Installs a configuration profile that adds a fullscreen
-      home-screen launcher for J-TV.
-    </p>
+  <main>
+    <section class="hero">
+      <h1>J-Store,<span>purple accent</span></h1>
+      <p>
+        Tap J-TV below to open the stream.
+      </p>
+    </section>
 
-    <a class="install" href="J-TV-WebClip.mobileconfig">
-      Install Profile
-    </a>
-  </div>
+    <div class="grid" role="list">
+      <a
+        class="card"
+        role="listitem"
+        href="https://jbrimz088.github.io/J-TV/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="card-img" aria-hidden="true">👟</div>
+        <div class="card-body">
+          <h3>J-TV</h3>
+          <div class="price">Watch</div>
+          <span class="tag">Footwear</span>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+      JSTORE · black / purple UI
+    </footer>
+  </main>
 </body>
 </html>
