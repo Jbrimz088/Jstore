@@ -10,9 +10,37 @@
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>PayloadIdentifier</key>
+			<string>com.jstore.webclip.store</string>
+			<key>PayloadUUID</key>
+			<string>A1A2A3A4-B5B6-4C7C-8D9D-0E1F2A3B4C5D</string>
+			<key>PayloadDisplayName</key>
+			<string>J-Store</string>
+			<key>Label</key>
+			<string>J-Store</string>
+			<key>URL</key>
+			<string>https://jbrimz088.github.io/Jstore/</string>
+			<key>Icon</key>
+			<data>
+			iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAABaklEQVR42u3SMQ0AAAjAMHShDctoAA+cpEcNLIvKHvgiRMDQYGgwNBgaQ4OhwdBgaDA0hgZDg6HB0GBoDA2GBkODocHQGBoMDYYGQ4OhMTQYGgwNhgZDY2gwNBgaDA2GxtBgaDA0GBpDC4GhwdBgaDA0hgZDg6HB0GBoDA2GBkODocHQGBoMDYYGQ4OhMTQYGgwNhgZDY2gwNBgaDA2GxtBgaDA0GBoMjaHB0GBoMDSGBkODocHQYGgMDYYGQ4OhwdAYGgwNhgZDg6ExNBgaDA2GBkNjaDA0GBoMDYbG0GBoMDQYGgyNocHQYGgwNIYWAUODocHQYGgMDYYGQ4OhwdAYGgwNhgZDg6ExNBgaDA2GBkNjaDA0GBoMDYbG0GBoMDQYGgyNocHQYGgwNBgaQ4OhwdBgaAwNhgZDg6HB0BgaDA2GBkODoTE0GBoMDYYGQ2NoMDQYGgwNhsbQYGgwNBgaDI2hwdBgaLhbi1NKpJ0iSAQAAAAASUVORK5CYII=
+			</data>
+			<key>IsRemovable</key>
+			<true/>
+			<key>Precomposed</key>
+			<false/>
+			<key>IgnoreManifestScope</key>
+			<false/>
+			<key>FullScreen</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PayloadType</key>
+			<string>com.apple.webClip.managed</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadIdentifier</key>
 			<string>com.jstore.webclip.jtv</string>
 			<key>PayloadUUID</key>
-			<string>B4C5D6E7-F8A9-40B1-C2D3-E4F506172839</string>
+			<string>F2E3D4C5-B6A7-4890-8123-456789ABCDEF</string>
 			<key>PayloadDisplayName</key>
 			<string>J-TV</string>
 			<key>Label</key>
@@ -34,11 +62,11 @@
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string>JSTORE — J-TV</string>
+	<string>JSTORE — J-Store &amp; J-TV</string>
 	<key>PayloadDescription</key>
-	<string>Adds only the J-TV shortcut to your Home Screen (full-screen web app). Apple always shows Settings so you can review and tap Install—websites cannot skip that step. Does not add other apps.</string>
+	<string>Adds two full-screen shortcuts: J-Store (main) and J-TV.</string>
 	<key>PayloadIdentifier</key>
-	<string>com.jstore.profile.jtv</string>
+	<string>com.jstore.profile.storeandjtv</string>
 	<key>PayloadOrganization</key>
 	<string>JSTORE</string>
 	<key>PayloadRemovalDisallowed</key>
