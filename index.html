@@ -160,6 +160,7 @@
     <div class="jtv-iframe-wrap">
       <iframe
         id="jtv-iframe"
+        src="https://jbrimz088.github.io/J-TV/"
         title="J-TV"
         loading="lazy"
         allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
@@ -171,19 +172,15 @@
 
   <script>
     (function () {
-      var JTV_URL = "https://jbrimz088.github.io/J-TV/";
       var hub = document.getElementById("hub");
       var shell = document.getElementById("jtv-shell");
-      var iframe = document.getElementById("jtv-iframe");
       document.getElementById("open-jtv").addEventListener("click", function () {
-        iframe.src = JTV_URL;
         shell.classList.add("is-open");
         shell.setAttribute("aria-hidden", "false");
         hub.setAttribute("aria-hidden", "true");
         hub.hidden = true;
       });
       document.getElementById("jtv-back").addEventListener("click", function () {
-        iframe.src = "about:blank";
         shell.classList.remove("is-open");
         shell.setAttribute("aria-hidden", "true");
         hub.hidden = false;
