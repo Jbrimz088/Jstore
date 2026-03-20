@@ -27,7 +27,7 @@
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
     * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
       min-height: 100dvh;
       font-family: "DM Sans", system-ui, sans-serif;
@@ -74,21 +74,68 @@
       padding: 0.7rem 1rem;
       border-radius: 10px;
       transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+      cursor: pointer;
     }
+    button.btn { border: none; }
     .btn:active { transform: scale(0.98); }
     .btn-install {
       background: linear-gradient(135deg, #5b21b6, #7c3aed);
       color: #fff;
       box-shadow: 0 4px 20px rgba(91, 33, 182, 0.45);
-      border: none;
     }
     .btn-install:hover { box-shadow: 0 6px 28px rgba(91, 33, 182, 0.55); }
     .hint { margin: 1rem 0 0; font-size: 0.72rem; color: var(--muted); line-height: 1.45; }
     footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.8rem; }
+
+    .jtv-shell {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      background: var(--bg);
+    }
+    .jtv-shell.is-open {
+      display: flex;
+    }
+    .back-btn {
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin: calc(0.4rem + var(--safe-top)) 0 0.25rem calc(0.65rem + env(safe-area-inset-left, 0px));
+      padding: 0.32rem 0.65rem;
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #5b21b6, #7c3aed);
+      box-shadow: 0 2px 12px rgba(91, 33, 182, 0.4);
+    }
+    .back-btn:active { transform: scale(0.97); }
+    .back-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .jtv-iframe-wrap {
+      flex: 1;
+      min-height: 0;
+      padding: 0 0 calc(env(safe-area-inset-bottom, 0px)) 0;
+    }
+    .jtv-iframe-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      border: 0;
+      background: #000;
+    }
   </style>
 </head>
 <body>
-  <main>
+  <main id="hub">
     <div class="brand">
       <img class="brand-logo" src="https://jbrimz088.github.io/Jstore/jstore-logo.png" width="72" height="72" alt="J-Store logo" />
       <span class="brand-name">J-Store</span>
@@ -96,21 +143,58 @@
     <section class="hero">
       <h1><span>J-Store</span> hub</h1>
       <p>
-        Tap below to open <strong style="color: var(--text)">J-TV</strong> in <strong style="color: var(--text)">this same window</strong> (no new Safari tab). Works best from a home screen Web Clip.
+        <strong style="color: var(--text)">J-TV</strong> opens below this page in an embedded frame. Use <strong style="color: var(--text)">Back</strong> (top left) to return here.
       </p>
     </section>
     <div class="panel">
       <h2>J-TV</h2>
-      <p>Same-window only — no <code style="color: var(--accent)">target="_blank"</code>.</p>
+      <p>Loads inside this site — not a new browser tab.</p>
       <div class="actions">
-        <a class="btn btn-install" href="https://jbrimz088.github.io/J-TV/">Open J-TV</a>
+        <button type="button" class="btn btn-install" id="open-jtv">Open J-TV</button>
       </div>
       <p class="hint">
-        Apple <code style="color: var(--accent)">.mobileconfig</code> for a real home screen icon (separate):
+        Apple <code style="color: var(--accent)">.mobileconfig</code> (separate):
         <a href="https://jbrimz088.github.io/Jstore/jstore-store.mobileconfig" style="color: var(--accent)">jstore-store.mobileconfig</a>
       </p>
     </div>
     <footer>JSTORE · black / purple UI</footer>
   </main>
+
+  <div id="jtv-shell" class="jtv-shell" aria-hidden="true">
+    <button type="button" class="back-btn" id="jtv-back" aria-label="Back to J-Store">← Back</button>
+    <div class="jtv-iframe-wrap">
+      <iframe
+        id="jtv-iframe"
+        title="J-TV"
+        loading="lazy"
+        allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="no-referrer-when-downgrade"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation allow-popups-to-escape-sandbox"
+      ></iframe>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var JTV_URL = "https://jbrimz088.github.io/J-TV/";
+      var hub = document.getElementById("hub");
+      var shell = document.getElementById("jtv-shell");
+      var iframe = document.getElementById("jtv-iframe");
+      document.getElementById("open-jtv").addEventListener("click", function () {
+        iframe.src = JTV_URL;
+        shell.classList.add("is-open");
+        shell.setAttribute("aria-hidden", "false");
+        hub.setAttribute("aria-hidden", "true");
+        hub.hidden = true;
+      });
+      document.getElementById("jtv-back").addEventListener("click", function () {
+        iframe.src = "about:blank";
+        shell.classList.remove("is-open");
+        shell.setAttribute("aria-hidden", "true");
+        hub.hidden = false;
+        hub.setAttribute("aria-hidden", "false");
+      });
+    })();
+  </script>
 </body>
 </html>
