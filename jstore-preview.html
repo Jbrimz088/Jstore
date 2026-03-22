@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0612" />
-  <title>J-Store (preview)</title>
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="J-Store" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>J-Store</title>
   <link rel="apple-touch-icon" href="https://jbrimz088.github.io/Jstore/jstore-logo.png" />
   <link rel="icon" type="image/png" href="https://jbrimz088.github.io/Jstore/jstore-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +27,7 @@
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
     * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
       min-height: 100dvh;
       font-family: "DM Sans", system-ui, sans-serif;
@@ -40,14 +44,14 @@
     .brand-logo { width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 8px 32px rgba(168, 85, 247, 0.35); object-fit: cover; }
     .brand-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; }
     .hero { padding: 1rem 0 1.5rem; text-align: center; }
-    .hero h1 { margin: 0 0 0.75rem; font-size: clamp(1.35rem, 4vw, 1.85rem); font-weight: 600; color: var(--muted); }
+    .hero h1 { margin: 0 0 0.75rem; font-size: clamp(1.35rem, 4vw, 1.85rem); font-weight: 600; color: var(--muted); letter-spacing: -0.02em; line-height: 1.2; }
     .hero h1 span {
       background: linear-gradient(90deg, #c084fc, #a855f7);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    .hero p { margin: 0 auto; max-width: 22rem; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+    .hero p { margin: 0 auto; max-width: 24rem; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
     .panel {
       max-width: 320px;
       margin: 1.5rem auto 0;
@@ -72,61 +76,115 @@
       transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
       cursor: pointer;
     }
-    button.btn { border-style: solid; border-width: 1px; }
+    button.btn { border: none; }
     .btn:active { transform: scale(0.98); }
     .btn-install {
-      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      background: linear-gradient(135deg, #5b21b6, #7c3aed);
       color: #fff;
-      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
-      border: none;
+      box-shadow: 0 4px 20px rgba(91, 33, 182, 0.45);
     }
-    .btn-open { background: transparent; color: var(--text); border-color: var(--border); }
-    .callout {
-      margin-top: 1rem;
-      padding: 0.75rem 0.85rem;
-      font-size: 0.72rem;
-      line-height: 1.45;
-      color: var(--muted);
-      background: rgba(168, 85, 247, 0.08);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-    .callout strong { color: var(--text); }
-    .hint { margin: 1rem 0 0; font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+    .btn-install:hover { box-shadow: 0 6px 28px rgba(91, 33, 182, 0.55); }
+    .hint { margin: 1rem 0 0; font-size: 0.72rem; color: var(--muted); line-height: 1.45; }
     footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.8rem; }
+
+    .jtv-shell {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      background: var(--bg);
+    }
+    .jtv-shell.is-open { display: flex; }
+    .back-btn {
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin: calc(0.4rem + var(--safe-top)) 0 0.25rem calc(0.65rem + env(safe-area-inset-left, 0px));
+      padding: 0.32rem 0.65rem;
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #5b21b6, #7c3aed);
+      box-shadow: 0 2px 12px rgba(91, 33, 182, 0.4);
+    }
+    .back-btn:active { transform: scale(0.97); }
+    .back-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .jtv-iframe-wrap {
+      flex: 1;
+      min-height: 0;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .jtv-iframe-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      border: 0;
+      background: #000;
+    }
   </style>
 </head>
 <body>
-  <main>
+  <main id="hub">
     <div class="brand">
-      <img class="brand-logo" src="jstore-logo.png" width="72" height="72" alt="J-Store logo" />
+      <img class="brand-logo" src="https://jbrimz088.github.io/Jstore/jstore-logo.png" width="72" height="72" alt="J-Store logo" />
       <span class="brand-name">J-Store</span>
     </div>
     <section class="hero">
-      <h1>Install <span>one app at a time</span></h1>
-      <p>Same as <code>index.html</code>; use relative logo + <code>jstore-store.mobileconfig</code> when testing from this folder on PC.</p>
+      <h1><span>J-Store</span> hub</h1>
+      <p>
+        <strong style="color: var(--text)">A App to Organize all of my Apps Into One.</strong>
+      </p>
     </section>
     <div class="panel">
       <h2>J-TV</h2>
-      <p>Full-screen shortcut to your stream.</p>
+      <p>Embedded below — same tab, not a navigation away.</p>
       <div class="actions">
-        <button type="button" class="btn btn-install" id="install-profile">Install J-TV profile</button>
-        <button type="button" class="btn btn-open" id="open-jtv">Open J-TV in browser</button>
+        <button type="button" class="btn btn-install" id="open-jtv">Open J-TV</button>
       </div>
-      <div class="callout" role="note">
-        <strong>Apple:</strong> configuration profiles always require opening <strong>Settings</strong> to review and tap Install—cannot be skipped from the web.
-      </div>
-      <p class="hint">On GitHub Pages use <code>index.html</code> (absolute URLs).</p>
+      <p class="hint">
+        Apple <code style="color: var(--accent)">.mobileconfig</code> (separate):
+        <a href="https://jbrimz088.github.io/Jstore/jstore-store.mobileconfig" style="color: var(--accent)">jstore-store.mobileconfig</a>
+      </p>
     </div>
-    <footer>JSTORE · black / purple UI</footer>
+    <footer>J-Store · Made By jbrimz</footer>
   </main>
+
+  <div id="jtv-shell" class="jtv-shell" aria-hidden="true">
+    <button type="button" class="back-btn" id="jtv-back" aria-label="Back to J-Store">← Back</button>
+    <div class="jtv-iframe-wrap">
+      <iframe
+        id="jtv-iframe"
+        src="https://jbrimz088.github.io/J-TV/"
+        title="J-TV"
+        loading="lazy"
+        allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="no-referrer-when-downgrade"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation allow-popups-to-escape-sandbox"
+      ></iframe>
+    </div>
+  </div>
+
   <script>
     (function () {
+      var hub = document.getElementById("hub");
+      var shell = document.getElementById("jtv-shell");
       document.getElementById("open-jtv").addEventListener("click", function () {
-        window.open("https://jbrimz088.github.io/J-TV/", "_blank", "noopener,noreferrer");
+        shell.classList.add("is-open");
+        shell.setAttribute("aria-hidden", "false");
+        hub.setAttribute("aria-hidden", "true");
+        hub.hidden = true;
       });
-      document.getElementById("install-profile").addEventListener("click", function () {
-        window.location.assign("jstore-store.mobileconfig?t=" + Date.now());
+      document.getElementById("jtv-back").addEventListener("click", function () {
+        shell.classList.remove("is-open");
+        shell.setAttribute("aria-hidden", "true");
+        hub.hidden = false;
+        hub.setAttribute("aria-hidden", "false");
       });
     })();
   </script>
