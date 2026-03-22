@@ -18,7 +18,7 @@
 			<key>Label</key>
 			<string>J-Store</string>
 			<key>URL</key>
-			<string>https://jbrimz088.github.io/Jstore/</string>
+			<string>https://jbrimz088.github.io/Jstore/jstore-preview.html</string>
 			<key>Icon</key>
 			<data>
 			iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAABaklEQVR42u3SMQ0AAAjAMHShDctoAA+cpEcNLIvKHvgiRMDQYGgwNBgaQ4OhwdBgaDA0hgZDg6HB0GBoDA2GBkODocHQGBoMDYYGQ4OhMTQYGgwNhgZDY2gwNBgaDA2GxtBgaDA0GBpDC4GhwdBgaDA0hgZDg6HB0GBoDA2GBkODocHQGBoMDYYGQ4OhMTQYGgwNhgZDY2gwNBgaDA2GxtBgaDA0GBoMjaHB0GBoMDSGBkODocHQYGgMDYYGQ4OhwdAYGgwNhgZDg6ExNBgaDA2GBkNjaDA0GBoMDYbG0GBoMDQYGgyNocHQYGgwNIYWAUODocHQYGgMDYYGQ4OhwdAYGgwNhgZDg6ExNBgaDA2GBkNjaDA0GBoMDYbG0GBoMDQYGgyNocHQYGgwNBgaQ4OhwdBgaAwNhgZDg6HB0BgaDA2GBkODoTE0GBoMDYYGQ2NoMDQYGgwNhsbQYGgwNBgaDI2hwdBgaLhbi1NKpJ0iSAQAAAAASUVORK5CYII=
@@ -36,7 +36,7 @@
 	<key>PayloadDisplayName</key>
 	<string>J-Store</string>
 	<key>PayloadDescription</key>
-	<string>One Web Clip: opens https://jbrimz088.github.io/Jstore/</string>
+	<string>One Web Clip: opens https://jbrimz088.github.io/Jstore/jstore-preview.html</string>
 	<key>PayloadIdentifier</key>
 	<string>com.jstore.profile.store</string>
 	<key>PayloadOrganization</key>
