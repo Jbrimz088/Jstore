@@ -1,81 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Install J-Store</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
-            border: 1px solid #4b0082;
-            width: 80%;
-            max-width: 350px;
-        }
-        img {
-            width: 100px;
-            height: 100px;
-            border-radius: 22px;
-            margin-bottom: 20px;
-            border: 2px solid #8a2be2;
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 14px;
-            color: #b19cd9;
-            margin-bottom: 30px;
-        }
-        .install-btn {
-            display: inline-block;
-            background-color: #8a2be2;
-            color: white;
-            text-decoration: none;
-            padding: 15px 40px;
-            border-radius: 12px;
-            font-weight: bold;
-            transition: transform 0.2s, background-color 0.2s;
-        }
-        .install-btn:active {
-            transform: scale(0.95);
-            background-color: #6a1b9a;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 10px;
-            color: #444;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0612" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="J-Store" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>J-Store</title>
+  <link rel="apple-touch-icon" href="https://jbrimz088.github.io/Jstore/jstore-logo.png" />
+  <link rel="icon" type="image/png" href="https://jbrimz088.github.io/Jstore/jstore-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0612;
+      --surface: #1a1028;
+      --border: rgba(168, 85, 247, 0.22);
+      --text: #f4edff;
+      --muted: #9b8ab8;
+      --accent: #a855f7;
+      --radius: 14px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: radial-gradient(120% 80% at 50% -20%, #2d1b4e 0%, var(--bg) 55%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: calc(1.5rem + var(--safe-top)) 1.25rem calc(2rem + var(--safe-bottom));
+    }
+    .brand { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; margin-bottom: 0.5rem; }
+    .brand-logo { width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 8px 32px rgba(168, 85, 247, 0.35); object-fit: cover; }
+    .brand-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; }
+    .hero { padding: 1rem 0 1.5rem; text-align: center; }
+    .hero h1 { margin: 0 0 0.75rem; font-size: clamp(1.35rem, 4vw, 1.85rem); font-weight: 600; color: var(--muted); letter-spacing: -0.02em; line-height: 1.2; }
+    .hero h1 span {
+      background: linear-gradient(90deg, #c084fc, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p { margin: 0 auto; max-width: 24rem; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+    .panel {
+      max-width: 320px;
+      margin: 1.5rem auto 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.25rem 1.1rem;
+    }
+    .panel h2 { margin: 0 0 0.35rem; font-size: 1.1rem; font-weight: 600; }
+    .panel > p { margin: 0 0 1rem; font-size: 0.875rem; color: var(--muted); line-height: 1.45; }
+    .actions { display: flex; flex-direction: column; gap: 0.65rem; }
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+      cursor: pointer;
+    }
+    button.btn { border: none; }
+    .btn:active { transform: scale(0.98); }
+    .btn-install {
+      background: linear-gradient(135deg, #5b21b6, #7c3aed);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(91, 33, 182, 0.45);
+    }
+    .btn-install:hover { box-shadow: 0 6px 28px rgba(91, 33, 182, 0.55); }
+    .hint { margin: 1rem 0 0; font-size: 0.72rem; color: var(--muted); line-height: 1.45; }
+    footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.8rem; }
+
+    .jtv-shell {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      background: var(--bg);
+    }
+    .jtv-shell.is-open { display: flex; }
+    .back-btn {
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin: calc(0.4rem + var(--safe-top)) 0 0.25rem calc(0.65rem + env(safe-area-inset-left, 0px));
+      padding: 0.32rem 0.65rem;
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #5b21b6, #7c3aed);
+      box-shadow: 0 2px 12px rgba(91, 33, 182, 0.4);
+    }
+    .back-btn:active { transform: scale(0.97); }
+    .back-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .jtv-iframe-wrap {
+      flex: 1;
+      min-height: 0;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .jtv-iframe-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      border: 0;
+      background: #000;
+    }
+  </style>
 </head>
 <body>
-
-    <div class="container">
-        <img src="jstore-logo.png" alt="J-Store Logo">
-        <h1>J-Store</h1>
-        <p>Tap below to install the J-TV WebClip profile to your device.</p>
-        
-        <a href="J-TV-WebClip.mobileconfig" class="install-btn">Install Profile</a>
+  <main id="hub">
+    <div class="brand">
+      <img class="brand-logo" src="https://jbrimz088.github.io/Jstore/jstore-logo.png" width="72" height="72" alt="J-Store logo" />
+      <span class="brand-name">J-Store</span>
     </div>
-
-    <div class="footer">
-        Open this page in Safari on your iOS device.
+    <section class="hero">
+      <h1><span>J-Store</span> hub</h1>
+      <p>
+        <strong style="color: var(--text)">A App to Organize all of my Apps Into One.</strong>
+      </p>
+    </section>
+    <div class="panel">
+      <h2>J-TV</h2>
+      <p>Embedded below — same tab, not a navigation away.</p>
+      <div class="actions">
+        <button type="button" class="btn btn-install" id="open-jtv">Open J-TV</button>
+      </div>
+      <p class="hint">
+        Apple <code style="color: var(--accent)">.mobileconfig</code> (separate):
+        <a href="https://jbrimz088.github.io/Jstore/jstore-store.mobileconfig" style="color: var(--accent)">jstore-store.mobileconfig</a>
+      </p>
     </div>
+    <footer>J-Store · Made By jbrimz</footer>
+  </main>
 
+  <div id="jtv-shell" class="jtv-shell" aria-hidden="true">
+    <button type="button" class="back-btn" id="jtv-back" aria-label="Back to J-Store">← Back</button>
+    <div class="jtv-iframe-wrap">
+      <iframe
+        id="jtv-iframe"
+        src="https://jbrimz088.github.io/J-TV/"
+        title="J-TV"
+        loading="lazy"
+        allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="no-referrer-when-downgrade"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation allow-popups-to-escape-sandbox"
+      ></iframe>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var hub = document.getElementById("hub");
+      var shell = document.getElementById("jtv-shell");
+      document.getElementById("open-jtv").addEventListener("click", function () {
+        shell.classList.add("is-open");
+        shell.setAttribute("aria-hidden", "false");
+        hub.setAttribute("aria-hidden", "true");
+        hub.hidden = true;
+      });
+      document.getElementById("jtv-back").addEventListener("click", function () {
+        shell.classList.remove("is-open");
+        shell.setAttribute("aria-hidden", "true");
+        hub.hidden = false;
+        hub.setAttribute("aria-hidden", "false");
+      });
+    })();
+  </script>
 </body>
 </html>
